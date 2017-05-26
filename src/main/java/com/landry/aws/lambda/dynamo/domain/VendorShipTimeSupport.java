@@ -120,4 +120,12 @@ public class VendorShipTimeSupport implements Serializable
 		this.timestamp = timestamp;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "VendorShipTimeSupport [support=" + support + ", cutOffTime=" + cutOffTime + ", id=" + id
+				+ ", leadBusinessDays=" + leadBusinessDays + ", readMe=" + readMe + ", vendorId=" + vendorId
+				+ ", shippingDays=" + shippingDays + ", timestamp=" + timestamp + "]";
+	}
+
 }

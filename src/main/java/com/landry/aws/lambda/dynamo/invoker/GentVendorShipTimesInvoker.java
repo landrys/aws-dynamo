@@ -7,6 +7,6 @@ import com.landry.aws.lambda.dynamo.domain.VendorShipTime;
 
 public interface GentVendorShipTimesInvoker
 {
-	@LambdaFunction(functionName = "LambdaDynamo-devstack-GetVendorShipTimes-QZ4TN34K093V")
+	@LambdaFunction(functionName = "getVendorShipTimes")
 	Set<VendorShipTime> getVendorShipTimes( String input );
 }
