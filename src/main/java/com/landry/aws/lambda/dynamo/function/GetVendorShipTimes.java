@@ -18,6 +18,8 @@ public class GetVendorShipTimes implements RequestHandler<String, List<VendorShi
 	@Override
 	public List<VendorShipTime> handleRequest( String input, Context context )
 	{
+		if ( input==null )
+			return null;
 		List<VendorShipTime> data = vstDao.findAll();
 		for ( VendorShipTime bean : data )
 			if ( bean.getWarehouse() == null )
