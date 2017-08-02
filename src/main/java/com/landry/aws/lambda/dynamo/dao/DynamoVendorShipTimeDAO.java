@@ -72,6 +72,25 @@ public class DynamoVendorShipTimeDAO implements VendorShipTimeDAO
 	}
 
 	@Override
+	public VendorShipTime findById( Integer id )
+	{
+
+		Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+		eav.put(":val1", new AttributeValue().withN(id.toString()));
+
+		DynamoDBScanExpression scanExpression = new DynamoDBScanExpression().withFilterExpression("id = :val1")
+				.withExpressionAttributeValues(eav);
+
+		List<VendorShipTime> scanResult = mapper.scan(VendorShipTime.class, scanExpression);
+
+		if (scanResult == null)
+			return null;
+		else
+			return scanResult.get(0);
+	}
+
+
+	@Override
 	public void delete( VendorShipTime vst )
 	{
 		mapper.delete(vst);

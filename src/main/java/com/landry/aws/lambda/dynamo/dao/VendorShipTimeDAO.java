@@ -8,6 +8,7 @@ public interface VendorShipTimeDAO
 {
 	List<VendorShipTime> findAll();
 	List<VendorShipTime> findByVendorId( Integer vendorId);
+	VendorShipTime findById( Integer id);
 	void write(VendorShipTime vst);
 	void delete(VendorShipTime vst);
 

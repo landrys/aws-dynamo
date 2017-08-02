@@ -16,6 +16,9 @@ public class VendorShipTime implements Serializable
 	private static final long serialVersionUID = 3179136743372025607L;
 	public static final String VENDOR_ID_INDEX = "vendorId-index";
 
+	@DynamoDBIgnore
+	private String selectName;
+
 	@DynamoDBHashKey
 	private Long id;
 
@@ -175,11 +178,21 @@ public class VendorShipTime implements Serializable
 	@Override
 	public String toString()
 	{
-		return "VendorShipTime [id=" + id + ", name=" + name + ", dropShipToStore=" + dropShipToStore
-				+ ", leadBusinessDays=" + leadBusinessDays + ", isBike=" + isBike + ", vendorId=" + vendorId
-				+ ", weeklyOrder=" + weeklyOrder + ", shippingDays=" + shippingDays + ", warehouse=" + warehouse
-				+ ", cutOffTime=" + cutOffTime + ", regularOrderDays=" + regularOrderDays + ", shippingCarrier="
-				+ shippingCarrier + "]";
+		return "VendorShipTime [selectName=" + selectName + ", id=" + id + ", name=" + name + ", dropShipToStore="
+				+ dropShipToStore + ", leadBusinessDays=" + leadBusinessDays + ", isBike=" + isBike + ", vendorId="
+				+ vendorId + ", weeklyOrder=" + weeklyOrder + ", shippingDays=" + shippingDays + ", warehouse="
+				+ warehouse + ", cutOffTime=" + cutOffTime + ", regularOrderDays=" + regularOrderDays
+				+ ", shippingCarrier=" + shippingCarrier + "]";
+	}
+
+	public String getSelectName()
+	{
+		return selectName;
+	}
+
+	public void setSelectName( String selectName )
+	{
+		this.selectName = selectName;
 	}
 
 }

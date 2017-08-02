@@ -26,16 +26,18 @@ public class GetVendorShipTimes implements RequestHandler<String, List<VendorShi
 		if ( input==null )
 			return null;
 		List<VendorShipTime> data = vstDao.findAll();
-		for ( VendorShipTime bean : data )
+		for ( VendorShipTime bean : data ) {
 			if ( bean.getWarehouse() == null )
 				bean.setWarehouse(":");
+			bean.setSelectName(bean.getName() + bean.getWarehouse());
+		}
 		
 		List<VendorShipTime> newList = new ArrayList<VendorShipTime>(data);
 
 
 		Collections.sort(newList, new Comparator<VendorShipTime>(){
 			  public int compare(VendorShipTime p1, VendorShipTime p2){
-			    return p1.getName().compareTo(p2.getName());
+			    return p1.getSelectName().compareTo(p2.getSelectName());
 			  }
 			});
 
